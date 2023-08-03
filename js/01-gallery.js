@@ -52,9 +52,9 @@ function handleClickOpen(event) {
   `);
   instance.show();
 
-  $basicLightbox__background: rgba(0, 0, 0, 0.8); // Background color
+  // $basicLightbox__background: rgba(0, 0, 0, 0.8); // Background color
   $basicLightbox__zIndex: 1000; // Stack order
   $basicLightbox__duration: 0.4; // Transition duration
-  $basicLightbox__timing: ease; // Transition timing
-  // import "src/styles/main";
+
+  //  @import "src/styles/main";
 }
