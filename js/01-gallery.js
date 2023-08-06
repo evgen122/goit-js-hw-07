@@ -46,8 +46,17 @@ function handleClickOpen(event) {
       alt="${element.alt}"      
     />
   `);
+
   instance.show();
 
   $basicLightbox__zIndex: 1000; // Stack order
   $basicLightbox__duration: 0.4; // Transition duration
+
+  const keyClose = window.addEventListener("keydown", function escClose(event) {
+    console.log(event);
+    if (event.code === "Escape") {
+      instance.close();
+      window.removeEventListener("keydown", escClose);
+    }
+  });
 }
