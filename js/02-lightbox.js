@@ -24,23 +24,6 @@ function galleryElements(arr) {
 
 galleryObj.insertAdjacentHTML("beforeend", galleryElements(galleryItems));
 
-// galleryObj.addEventListener("click", handleClickOpen);
-
-// function handleClickOpen(event) {
-//   event.preventDefault();
-
-//   if (event.target === event.currentTarget) {
-//     return;
-//   }
-
-//   event.preventDefault();
-
-//   let lightbox = new SimpleLightbox(".gallery a", {
-//     captionsData: "alt",
-//     captionDelay: 250,
-//   });
-// }
-
 let lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,

@@ -36,25 +36,18 @@ function handleClickOpen(event) {
 
   event.preventDefault();
 
-  // console.log(event);
   const element = event.target.closest(".gallery__image");
-  // console.log(element.dataset);
   const {source} = element.dataset;
 
-  const pictGallery = galleryItems.find(({original}) => source === original);
-  // console.log(pictGallery);
   const instance = basicLightbox.create(`
       <img
       class="gallery__image"
       src="${source}" 
-      alt="${pictGallery.description}"      
+      alt="${element.alt}"      
     />
   `);
   instance.show();
 
-  // $basicLightbox__background: rgba(0, 0, 0, 0.8); // Background color
   $basicLightbox__zIndex: 1000; // Stack order
   $basicLightbox__duration: 0.4; // Transition duration
-
-  //  @import "src/styles/main";
 }
