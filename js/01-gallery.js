@@ -64,7 +64,7 @@ function handleClickOpen(event) {
   $basicLightbox__duration: 0.4; // Transition duration
 
   function escClose(event) {
-    console.log(event);
+    // console.log(event);
     if (event.code === "Escape") {
       instance.close();
     }
