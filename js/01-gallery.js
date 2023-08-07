@@ -39,24 +39,36 @@ function handleClickOpen(event) {
   const element = event.target.closest(".gallery__image");
   const {source} = element.dataset;
 
-  const instance = basicLightbox.create(`
+  const instance = basicLightbox.create(
+    `
       <img
       class="gallery__image"
       src="${source}" 
       alt="${element.alt}"      
-    />
-  `);
+    />`,
+    {
+      onShow: (instance) => {
+        window.addEventListener("keydown", escClose);
+        // console.log("onShow", instance);
+      },
+      onClose: (instance) => {
+        window.removeEventListener("keydown", escClose);
+        // console.log("onClose", instance);
+      },
+    }
+  );
 
   instance.show();
 
   $basicLightbox__zIndex: 1000; // Stack order
   $basicLightbox__duration: 0.4; // Transition duration
 
-  const keyClose = window.addEventListener("keydown", function escClose(event) {
+  function escClose(event) {
     console.log(event);
     if (event.code === "Escape") {
       instance.close();
-      window.removeEventListener("keydown", escClose);
     }
-  });
+  }
+
+  const keyClose = window.addEventListener("keydown", escClose);
 }
